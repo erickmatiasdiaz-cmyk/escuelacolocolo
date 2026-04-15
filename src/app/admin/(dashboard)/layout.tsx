@@ -67,13 +67,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="flex h-full flex-col">
           <div className="border-b border-white/8 px-6 py-7">
             <Link href="/admin/dashboard" className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-yellow-400/40 bg-yellow-400/10 text-yellow-400">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgba(196,23,48,0.35)] bg-[color:rgba(196,23,48,0.12)] text-[var(--red-600)]">
                 ⚽
               </div>
               <div>
-                <p className="text-[0.68rem] uppercase tracking-[0.28em] text-yellow-400/70">Panel</p>
+                <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[color:rgba(196,23,48,0.72)]">Panel</p>
                 <p className="text-2xl font-black tracking-tight">
-                  Admin <span className="text-yellow-400">Elite</span>
+                  Admin <span className="text-[var(--red-600)]">Elite</span>
                 </p>
               </div>
             </Link>
@@ -88,8 +88,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   href={item.href}
                   className={`flex items-center gap-3 rounded-2xl px-4 py-3 transition ${
                     active
-                      ? 'bg-yellow-400 text-black shadow-[0_14px_28px_rgba(245,197,24,0.22)]'
-                      : 'text-white/65 hover:bg-white/6 hover:text-yellow-400'
+                      ? 'bg-[var(--red-600)] text-white shadow-[0_14px_28px_rgba(196,23,48,0.24)]'
+                      : 'text-white/65 hover:bg-white/6 hover:text-[var(--red-600)]'
                   }`}
                   onClick={() => setSidebarOpen(false)}
                 >
@@ -103,7 +103,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="border-t border-white/8 p-4">
             <Link
               href="/"
-              className="mb-2 flex items-center gap-3 rounded-2xl px-4 py-3 text-white/65 transition hover:bg-white/6 hover:text-yellow-400"
+              className="mb-2 flex items-center gap-3 rounded-2xl px-4 py-3 text-white/65 transition hover:bg-white/6 hover:text-[var(--red-600)]"
             >
               <span>🌐</span> Ver sitio
             </Link>
@@ -146,7 +146,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {loading ? (
             <div className="flex items-center justify-center py-28">
               <div className="admin-dark-card px-10 py-10 text-center">
-                <div className="mb-4 text-4xl text-yellow-400">⚽</div>
+                <div className="mb-4 text-4xl text-[var(--red-600)]">⚽</div>
                 <p className="text-white/72">Cargando panel...</p>
               </div>
             </div>

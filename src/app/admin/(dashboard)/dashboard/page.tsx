@@ -69,7 +69,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <section className="admin-dark-card overflow-hidden px-8 py-10">
-        <p className="text-sm font-bold uppercase tracking-[0.22em] text-yellow-400">Dashboard</p>
+        <p className="text-sm font-bold uppercase tracking-[0.22em] text-[var(--red-600)]">Dashboard</p>
         <h1 className="mt-4 text-5xl font-black tracking-[-0.04em]">Control total del proyecto</h1>
         <p className="mt-4 max-w-2xl text-base leading-8 text-white/68">
           Gestiona el contenido con una interfaz más cuidada, alineada al tono premium del sitio público.
@@ -80,10 +80,10 @@ export default function DashboardPage() {
         {cards.map((card) => (
           <Link key={card.href} href={card.href} className="admin-card p-6 transition hover:-translate-y-1">
             <div className="flex items-start justify-between gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black text-2xl text-yellow-400">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black text-2xl text-[var(--red-600)]">
                 {card.icon}
               </div>
-              <span className="rounded-full border border-yellow-400/25 bg-yellow-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-yellow-700">
+              <span className="rounded-full border border-[color:rgba(196,23,48,0.24)] bg-[color:rgba(196,23,48,0.12)] px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--red-600)]">
                 Activo
               </span>
             </div>
@@ -95,20 +95,20 @@ export default function DashboardPage() {
 
       <section className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
         <div className="admin-card p-7">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-yellow-600">Accesos rápidos</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--red-600)]">Accesos rápidos</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Link href="/admin/noticias/nuevo" className="admin-dark-card px-5 py-5">
-              <div className="text-2xl text-yellow-400">📝</div>
+              <div className="text-2xl text-[var(--red-600)]">📝</div>
               <p className="mt-4 text-lg font-black">Nueva noticia</p>
               <p className="mt-2 text-sm leading-6 text-white/62">Publicar contenido editorial del sitio.</p>
             </Link>
-            <Link href="/admin/galeria/nuevo" className="admin-card border border-yellow-400/20 px-5 py-5">
-              <div className="text-2xl text-yellow-600">🖼️</div>
+            <Link href="/admin/galeria/nuevo" className="admin-card border border-[color:rgba(196,23,48,0.2)] px-5 py-5">
+              <div className="text-2xl text-[var(--red-600)]">🖼️</div>
               <p className="mt-4 text-lg font-black text-gray-900">Agregar foto</p>
               <p className="mt-2 text-sm leading-6 text-gray-600">Subir material visual y ordenar la galería.</p>
             </Link>
             <Link href="/admin/horarios/nuevo" className="admin-card px-5 py-5">
-              <div className="text-2xl text-yellow-600">📅</div>
+              <div className="text-2xl text-[var(--red-600)]">📅</div>
               <p className="mt-4 text-lg font-black text-gray-900">Nuevo horario</p>
               <p className="mt-2 text-sm leading-6 text-gray-600">Crear sesiones por categoría y sede.</p>
             </Link>
@@ -116,7 +116,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="admin-card p-7">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-yellow-600">Estado del panel</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--red-600)]">Estado del panel</p>
           <div className="mt-6 space-y-4">
             {[
               ['Sitio público', 'Identidad premium aplicada'],
