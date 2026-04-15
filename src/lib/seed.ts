@@ -109,6 +109,12 @@ async function seedCategorias() {
 }
 
 async function seedHorarios() {
+  const existingHorarios = await prisma.horario.count();
+  if (existingHorarios > 0) {
+    console.log('Los horarios ya existen');
+    return;
+  }
+
   const categorias = await prisma.categoria.findMany();
 
   const horarios = [
