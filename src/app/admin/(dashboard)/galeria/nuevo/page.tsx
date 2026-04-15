@@ -48,10 +48,12 @@ export default function NuevaGaleriaPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titulo, descripcion, imagen, categoria, orden, activo }),
       });
-      if (!res.ok) throw new Error('Error');
+      const raw = await res.text();
+      const data = (raw ? JSON.parse(raw) : {}) as { error?: string };
+      if (!res.ok) throw new Error(data.error || 'Error al crear');
       router.push('/admin/galeria');
-    } catch {
-      alert('Error al crear');
+    } catch (error) {
+      alert(error instanceof Error ? error.message : 'Error al crear');
     } finally {
       setLoading(false);
     }
