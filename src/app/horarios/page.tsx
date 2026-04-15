@@ -37,7 +37,7 @@ export default async function HorariosPage() {
           <p className="eyebrow">Planificación</p>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] md:text-7xl">
             Horarios con orden,
-            <span className="block text-yellow-400">claridad y ritmo de academia</span>
+            <span className="block text-[var(--red-600)]">claridad y ritmo de academia</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/72">
             Organizamos cada categoría con una estructura clara para que entrenar se sienta profesional,
@@ -56,10 +56,10 @@ export default async function HorariosPage() {
                 <section key={categoria} className="card overflow-hidden">
                   <div className="flex flex-col gap-4 border-b border-white/10 bg-[linear-gradient(135deg,#050505,#181818)] px-8 py-8 text-white md:flex-row md:items-end md:justify-between">
                     <div>
-                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-yellow-400">Categoría</p>
+                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-[var(--red-600)]">Categoría</p>
                       <h2 className="mt-3 text-4xl font-black tracking-tight">{categoria}</h2>
                     </div>
-                    <div className="rounded-full border border-yellow-400/22 bg-yellow-400/10 px-4 py-2 text-sm font-bold text-yellow-300">
+                    <div className="rounded-full border border-[color:rgba(196,23,48,0.25)] bg-[color:rgba(196,23,48,0.12)] px-4 py-2 text-sm font-bold text-[var(--red-600)]">
                       {items.length} sesiones registradas
                     </div>
                   </div>

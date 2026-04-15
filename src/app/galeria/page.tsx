@@ -25,7 +25,7 @@ export default async function GaleriaPage() {
           <p className="eyebrow">Galería</p>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] md:text-7xl">
             Una identidad visual
-            <span className="block text-yellow-400">que se siente grande</span>
+            <span className="block text-[var(--red-600)]">que se siente grande</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/72">
             Más que fotos: una muestra del ambiente, la energía y la puesta en escena que define a la escuela.
@@ -65,7 +65,7 @@ export default async function GaleriaPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                       {item.categoria ? (
-                        <span className="rounded-full border border-yellow-400/35 bg-yellow-400/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-yellow-300">
+                        <span className="rounded-full border border-[color:rgba(196,23,48,0.35)] bg-[color:rgba(196,23,48,0.12)] px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--red-600)]">
                           {item.categoria}
                         </span>
                       ) : null}

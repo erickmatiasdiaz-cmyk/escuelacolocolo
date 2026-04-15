@@ -31,7 +31,7 @@ export default async function NoticiasPage() {
           <p className="eyebrow">Noticias</p>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] md:text-7xl">
             El relato de una escuela
-            <span className="block text-yellow-400">que cuida cada detalle</span>
+            <span className="block text-[var(--red-600)]">que cuida cada detalle</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/72">
             Novedades, hitos y contenido para reforzar la percepción de nivel, actividad y proyección del proyecto.
@@ -67,7 +67,7 @@ export default async function NoticiasPage() {
                       )}
                     </div>
                     <div className="flex flex-col justify-center p-8 md:p-12">
-                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-yellow-600">Destacada</p>
+                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-[var(--red-600)]">Destacada</p>
                       <div className="mt-4 text-sm text-gray-500">
                         {new Date(destacada.fechaPubli || destacada.createdAt).toLocaleDateString('es-ES', {
                           year: 'numeric',
@@ -122,7 +122,7 @@ export default async function NoticiasPage() {
                       ) : null}
                       <Link
                         href={`/noticias/${noticia.slug}`}
-                        className="mt-6 inline-flex text-sm font-bold uppercase tracking-[0.18em] text-yellow-700 transition hover:text-black"
+                        className="mt-6 inline-flex text-sm font-bold uppercase tracking-[0.18em] text-[var(--red-600)] transition hover:text-black"
                       >
                         Leer más
                       </Link>
