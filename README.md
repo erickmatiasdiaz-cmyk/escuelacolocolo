@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚽ Escuela de Fútbol Elite - Página Autoadministrable
 
-## Getting Started
+Una página web completa y autoadministrable para una escuela de fútbol, construida con **Next.js 16**, **TypeScript**, **Tailwind CSS**, **Prisma ORM** y **SQLite**.
 
-First, run the development server:
+## 🚀 Características
+
+### Sitio Público
+- **Inicio**: Hero, características, vista previa de categorías y noticias recientes
+- **Nosotros**: Historia, misión, visión y valores
+- **Categorías**: Lista de categorías con rangos de edad
+- **Horarios**: Tabla de horarios por categoría
+- **Galería**: Galería de fotos con efectos hover
+- **Noticias**: Blog de noticias con vista de detalle
+- **Contacto**: Formulario e información de contacto
+
+### Panel de Administración
+- **Login seguro** con autenticación JWT y cookies httpOnly
+- **Dashboard** con estadísticas y accesos rápidos
+- **CRUD Noticias**: Crear, editar, publicar/noticias de borrador
+- **CRUD Categorías**: Gestionar categorías por edad
+- **CRUD Horarios**: Gestionar horarios por categoría
+- **CRUD Galería**: Subir y gestionar fotos con vista previa
+- **Configuración**: Editar contenido del sitio (teléfono, email, textos, etc.)
+
+## 📋 Requisitos Previos
+
+- Node.js 18+ 
+- npm
+
+## 🛠️ Instalación
+
+```bash
+# Instalar dependencias
+npm install
+
+# Configurar la base de datos y ejecutar migraciones
+npx prisma migrate dev
+
+# Generar datos de ejemplo (admin usuario, categorías, etc.)
+npx tsx src/lib/seed.ts
+```
+
+## 🏃‍♂️ Ejecutar en Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
+Accede al panel admin en [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Credenciales por defecto:**
+- Usuario: `admin`
+- Contraseña: `admin123`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Estructura del Proyecto
 
-## Learn More
+```
+escuela-futbol/
+├── prisma/
+│   └── schema.prisma          # Modelos de base de datos
+├── public/
+│   └── uploads/               # Imágenes subidas
+├── src/
+│   ├── app/
+│   │   ├── page.tsx           # Página de inicio
+│   │   ├── nosotros/page.tsx
+│   │   ├── categorias/page.tsx
+│   │   ├── horarios/page.tsx
+│   │   ├── galeria/page.tsx
+│   │   ├── noticias/page.tsx
+│   │   ├── noticias/[slug]/page.tsx
+│   │   ├── contacto/page.tsx
+│   │   ├── admin/             # Panel de administración
+│   │   │   ├── login/page.tsx
+│   │   │   ├── dashboard/page.tsx
+│   │   │   ├── noticias/      # CRUD noticias
+│   │   │   ├── categorias/    # CRUD categorías
+│   │   │   ├── horarios/      # CRUD horarios
+│   │   │   ├── galeria/       # CRUD galería
+│   │   │   └── configuracion/page.tsx
+│   │   └── api/               # API Routes
+│   │       ├── auth/login
+│   │       ├── auth/me
+│   │       ├── noticias
+│   │       ├── categorias
+│   │       ├── horarios
+│   │       ├── galeria
+│   │       ├── config
+│   │       ├── contacto
+│   │       └── upload
+│   ├── components/
+│   │   └── public/
+│   │       ├── Header.tsx
+│   │       ├── Footer.tsx
+│   │       ├── PublicLayout.tsx
+│   │       ├── HeroSection.tsx
+│   │       ├── FeaturesSection.tsx
+│   │       ├── CategoriasPreview.tsx
+│   │       ├── NoticiasRecientes.tsx
+│   │       └── CTASection.tsx
+│   └── lib/
+│       ├── prisma.ts          # Cliente Prisma
+│       ├── auth.ts            # Utilidades JWT
+│       ├── auth-middleware.ts # Middleware auth
+│       └── seed.ts            # Datos de ejemplo
+└── .env                       # Variables de entorno
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🗄️ Base de Datos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El proyecto utiliza **SQLite** como base de datos local con los siguientes modelos:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Admin**: Usuarios del panel de administración
+- **Configuracion**: Configuración del sitio (textos, contacto, etc.)
+- **Categoria**: Categorías por edad (Pre-Infantil, Infantil, Juvenil A/B)
+- **Horario**: Horarios de entrenamiento vinculados a categorías
+- **Noticia**: Noticias/artículos del blog
+- **Galeria**: Fotos de la galería
+- **Contacto**: Información de contacto
 
-## Deploy on Vercel
+## 🔧 Variables de Entorno
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="tu_clave_secreta_aqui"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗️ Construir para Producción
+
+```bash
+npm run build
+npm start
+```
+
+## 📝 Panel Admin - Funcionalidades
+
+1. **Dashboard**: Vista general con estadísticas
+2. **Noticias**: Crear/editar noticias con título, slug, contenido, imagen, estado publicado/borrador
+3. **Categorías**: Gestionar categorías con nombre, descripción, rango de edad, imagen
+4. **Horarios**: Crear horarios con día, hora inicio/fin, sede, vinculado a categoría
+5. **Galería**: Subir fotos (upload local) o por URL, con título, descripción, categoría
+6. **Configuración**: Editar textos del sitio, datos de contacto, URLs de redes sociales
+
+## 🚀 Despliegue
+
+Para desplegar en producción:
+
+1. **Vercel** (recomendado): Conecta tu repo a Vercel y despliega automáticamente
+2. **Servidor propio**: 
+   ```bash
+   npm run build
+   npx prisma migrate deploy
+   npm start
+   ```
+
+## 🔐 Seguridad
+
+- Autenticación JWT con cookies httpOnly
+- Contraseñas hasheadas con bcrypt
+- Protección de rutas API con middleware de autenticación
+- Variables de entorno para datos sensibles
+
+## 📄 Licencia
+
+Proyecto de código abierto para uso educativo y comercial.
+
+---
+
+Hecho con ⚽ y ❤️ para la Escuela de Fútbol Elite

@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  nombre    String
+  email     String   @unique
+  rol       String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Configuracion {
+  id          String @id @default(cuid())
+  clave       String @unique
+  valor       String
+  descripcion String?
+}
+
+model Categoria {
+  id          String   @id @default(cuid())
+  nombre      String   @unique
+  descripcion String?
+  edadMinima  Int?
+  edadMaxima  Int?
+  imagen      String?
+  activo      Boolean  @default(true)
+  orden       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  horarios    Horario[]
+}
+
+model Horario {
+  id          String   @id @default(cuid())
+  categoriaId String
+  categoria   Categoria @relation(fields: [categoriaId], references: [id], onDelete: Cascade)
+  dia         String
+  horaInicio  String
+  horaFin     String
+  sede        String?
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Noticia {
+  id          String   @id @default(cuid())
+  titulo      String
+  slug        String   @unique
+  contenido   String
+  resumen     String?
+  imagen      String?
+  publicado   Boolean  @default(false)
+  fechaPubli  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Galeria {
+  id          String   @id @default(cuid())
+  titulo      String
+  descripcion String?
+  imagen      String
+  categoria   String?
+  orden       Int      @default(0)
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Contacto {
+  id          String   @id @default(cuid())
+  clave       String   @unique
+  valor       String
+  tipo        String
+  orden       Int      @default(0)
+}
