@@ -28,7 +28,8 @@ export default function NuevaGaleriaPage() {
       const formData = new FormData();
       formData.append('file', file);
       const res = await fetch('/api/upload', { method: 'POST', body: formData });
-      const data = (await res.json()) as { url?: string; error?: string };
+      const raw = await res.text();
+      const data = (raw ? JSON.parse(raw) : {}) as { url?: string; error?: string };
       if (!res.ok) throw new Error(data.error || 'Error al subir imagen');
       if (data.url) setImagen(data.url);
     } catch (error) {

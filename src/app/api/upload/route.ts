@@ -15,46 +15,68 @@ function sanitizeFilename(name: string) {
 }
 
 export async function POST(request: NextRequest) {
-  const auth = await verifyAuth(request);
-  if (!auth.authorized) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  try {
+    const auth = await verifyAuth(request);
+    if (!auth.authorized) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
-  const formData = await request.formData();
-  const file = formData.get('file');
+    const formData = await request.formData();
+    const file = formData.get('file');
 
-  if (!(file instanceof File)) {
-    return NextResponse.json({ error: 'No file provided' }, { status: 400 });
-  }
+    if (!(file instanceof File)) {
+      return NextResponse.json({ error: 'No file provided' }, { status: 400 });
+    }
 
-  if (!ALLOWED_TYPES.has(file.type)) {
+    if (!ALLOWED_TYPES.has(file.type)) {
+      return NextResponse.json(
+        { error: 'Invalid file type. Only JPG, PNG, and WEBP are allowed.' },
+        { status: 400 }
+      );
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: 'File too large. Maximum size is 5MB.' },
+        { status: 400 }
+      );
+    }
+
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const filename = sanitizeFilename(file.name);
+    const uploadDir = join(process.cwd(), 'public', 'uploads');
+
+    try {
+      if (!existsSync(uploadDir)) {
+        await mkdir(uploadDir, { recursive: true });
+      }
+
+      const filePath = join(uploadDir, filename);
+      await writeFile(filePath, new Uint8Array(buffer));
+
+      return NextResponse.json({
+        success: true,
+        url: `/uploads/${filename}`,
+        filename,
+        storage: 'filesystem',
+      });
+    } catch (storageError) {
+      console.error('Upload filesystem fallback:', storageError);
+
+      const dataUrl = `data:${file.type};base64,${buffer.toString('base64')}`;
+
+      return NextResponse.json({
+        success: true,
+        url: dataUrl,
+        filename,
+        storage: 'inline',
+      });
+    }
+  } catch (error) {
+    console.error('Upload error:', error);
     return NextResponse.json(
-      { error: 'Invalid file type. Only JPG, PNG, and WEBP are allowed.' },
-      { status: 400 }
+      { error: 'No se pudo subir la imagen.' },
+      { status: 500 }
     );
   }
-
-  if (file.size > MAX_FILE_SIZE) {
-    return NextResponse.json(
-      { error: 'File too large. Maximum size is 5MB.' },
-      { status: 400 }
-    );
-  }
-
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const filename = sanitizeFilename(file.name);
-  const uploadDir = join(process.cwd(), 'public', 'uploads');
-
-  if (!existsSync(uploadDir)) {
-    await mkdir(uploadDir, { recursive: true });
-  }
-
-  const filePath = join(uploadDir, filename);
-  await writeFile(filePath, new Uint8Array(buffer));
-
-  return NextResponse.json({
-    success: true,
-    url: `/uploads/${filename}`,
-    filename,
-  });
 }
