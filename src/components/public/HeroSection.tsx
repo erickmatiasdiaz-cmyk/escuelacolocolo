@@ -9,7 +9,7 @@ const IMAGENES = ['/imagenes/fut1.jpg', '/imagenes/fut2.png', '/imagenes/fut3.jp
 
 const STATS = [
   { value: '240+', label: 'Jugadores activos' },
-  { value: '10 años', label: 'Formando talento' },
+  { value: '3 años', label: 'Formando talento' },
   { value: '12', label: 'Entrenadores especializados' },
 ];
 
