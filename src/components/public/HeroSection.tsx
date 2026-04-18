@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import MovingBall from '@/components/public/MovingBall';
 
 const IMAGENES = ['/imagenes/fut1.jpg', '/imagenes/fut2.png', '/imagenes/fut3.jpg'];
 
@@ -45,6 +46,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,10,20,0.94)_0%,rgba(8,17,34,0.82)_42%,rgba(16,42,103,0.48)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_24%,rgba(196,23,48,0.22),transparent_22%),radial-gradient(circle_at_30%_10%,rgba(255,255,255,0.08),transparent_18%)]" />
+      <MovingBall />
 
       <div className="container relative z-10 mx-auto flex min-h-[76vh] items-center py-18">
         <div className="max-w-3xl">

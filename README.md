@@ -1,4 +1,4 @@
-# ⚽ Escuela de Fútbol Elite - Página Autoadministrable
+# ⚽ Colo Colo Santa Bárbara - Página Autoadministrable
 
 Una página web completa y autoadministrable para una escuela de fútbol, construida con **Next.js 16**, **TypeScript**, **Tailwind CSS**, **Prisma ORM** y **SQLite**.
 
@@ -167,4 +167,4 @@ Proyecto de código abierto para uso educativo y comercial.
 
 ---
 
-Hecho con ⚽ y ❤️ para la Escuela de Fútbol Elite
+Hecho con ⚽ y ❤️ para Colo Colo Santa Bárbara

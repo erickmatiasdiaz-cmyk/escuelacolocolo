@@ -73,7 +73,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <div>
                 <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[color:rgba(196,23,48,0.72)]">Panel</p>
                 <p className="text-2xl font-black tracking-tight">
-                  Admin <span className="text-[var(--red-600)]">Elite</span>
+                  Admin <span className="text-[var(--red-600)]">Santa Bárbara</span>
                 </p>
               </div>
             </Link>

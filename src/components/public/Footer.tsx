@@ -13,13 +13,13 @@ export default function Footer() {
               <div>
                 <p className="text-[0.68rem] uppercase tracking-[0.32em] text-white/58">Identidad deportiva</p>
                 <h3 className="text-3xl font-black tracking-tight">
-                  Escuela <span className="text-[#d11d38]">Elite</span>
+                  Colo Colo <span className="text-[#d11d38]">Santa Bárbara</span>
                 </h3>
               </div>
             </div>
             <p className="mt-6 max-w-md text-base leading-7 text-white/62">
-              Formación competitiva con una estética inspirada en colores clásicos del fútbol chileno:
-              azul institucional, blanco limpio y rojo como sello de energía.
+              Escuela de fútbol formativo en Santa Bárbara, enfocada en disciplina, compañerismo y desarrollo
+              deportivo para niños y jóvenes.
             </p>
           </div>
 
@@ -46,16 +46,16 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-[0.22em] text-white/72">Contacto</h4>
             <div className="mt-5 space-y-4 text-white/66">
-              <p>Av. Deportes 1234, Santiago</p>
+              <p>Santa Bárbara, Región del Biobío</p>
               <p>+56 9 1234 5678</p>
-              <p>contacto@escuelafutbol.com</p>
+              <p>contacto@colocolosantabarbara.cl</p>
             </div>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
-          <p>&copy; {new Date().getFullYear()} Escuela de Fútbol Elite. Todos los derechos reservados.</p>
-          <p>Diseño inspirado en una identidad clásica y competitiva.</p>
+          <p>&copy; {new Date().getFullYear()} Colo Colo Santa Bárbara. Todos los derechos reservados.</p>
+          <p>Formación deportiva con identidad local y espíritu albo.</p>
         </div>
       </div>
     </footer>

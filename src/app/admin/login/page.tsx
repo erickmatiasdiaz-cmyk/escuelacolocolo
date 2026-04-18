@@ -52,7 +52,7 @@ export default function LoginPage() {
           <h1 className="text-3xl font-extrabold text-white">
             Panel de <span className="text-[var(--red-600)]">Administración</span>
           </h1>
-          <p className="mt-2 text-gray-400">Escuela de Fútbol Elite</p>
+          <p className="mt-2 text-gray-400">Colo Colo Santa Bárbara</p>
         </div>
 
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-8 shadow-2xl">

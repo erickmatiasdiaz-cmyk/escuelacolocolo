@@ -20,17 +20,17 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[linear-gradient(90deg,rgba(8,12,24,0.95),rgba(16,42,103,0.9))] text-white backdrop-blur-xl">
+    <header className="site-header sticky top-0 z-50 border-b border-white/10 bg-[linear-gradient(90deg,rgba(8,12,24,0.96),rgba(16,42,103,0.92))] text-white backdrop-blur-xl">
       <div className="container mx-auto">
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-4">
+          <Link href="/" className="group flex items-center gap-4">
             <BrandLogo size={46} />
             <div className="leading-none">
               <p className="text-[0.64rem] font-semibold uppercase tracking-[0.34em] text-white/62">
                 Escuela de fútbol
               </p>
-              <p className="mt-1 text-[1.65rem] font-black tracking-[-0.04em] text-white">
-                Colo Colo<span className="text-[#d11d38]">  Santa Barbara</span>
+              <p className="mt-1 text-[1.65rem] font-black tracking-[-0.04em] text-white transition group-hover:text-white/88">
+                Colo Colo<span className="text-[#d11d38]"> Santa Bárbara</span>
               </p>
             </div>
           </Link>
@@ -42,8 +42,8 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-4 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition ${
-                    active ? 'bg-white/10 text-white' : 'text-white/76 hover:bg-white/6 hover:text-white'
+                  className={`nav-link rounded-full px-4 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition duration-200 hover:-translate-y-0.5 ${
+                    active ? 'nav-link-active text-white' : 'text-white/76 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -52,9 +52,9 @@ export default function Header() {
             })}
             <Link
               href="/admin"
-              className="ml-4 inline-flex min-h-0 items-center rounded-full border border-white/14 bg-[#c41730] px-5 py-3 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:brightness-105"
+              className="admin-nav-link ml-4 inline-flex min-h-0 items-center rounded-full border border-white/14 bg-[#c41730] px-5 py-3 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-white shadow-[0_12px_28px_rgba(196,23,48,0.28)] transition hover:-translate-y-0.5 hover:brightness-105"
             >
-              Admin
+              <span className="relative z-10">Admin</span>
             </Link>
           </nav>
 

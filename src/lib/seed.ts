@@ -16,7 +16,7 @@ async function seedAdmin() {
       username: 'admin',
       password: hashedPassword,
       nombre: 'Administrador Principal',
-      email: 'admin@escuelafutbol.com',
+      email: 'admin@colocolosantabarbara.cl',
       rol: 'admin',
     },
   });
@@ -26,12 +26,12 @@ async function seedAdmin() {
 
 async function seedConfiguracion() {
   const configs = [
-    { clave: 'nombre_escuela', valor: 'Escuela de Fútbol Elite', descripcion: 'Nombre de la escuela' },
+    { clave: 'nombre_escuela', valor: 'Colo Colo Santa Bárbara', descripcion: 'Nombre de la escuela' },
     { clave: 'telefono', valor: '+56 9 1234 5678', descripcion: 'Teléfono de contacto' },
-    { clave: 'email', valor: 'contacto@escuelafutbol.com', descripcion: 'Email de contacto' },
-    { clave: 'direccion', valor: 'Av. Deportes 1234, Santiago', descripcion: 'Dirección' },
-    { clave: 'facebook', valor: 'https://facebook.com/escuelafutbol', descripcion: 'Facebook URL' },
-    { clave: 'instagram', valor: 'https://instagram.com/escuelafutbol', descripcion: 'Instagram URL' },
+    { clave: 'email', valor: 'contacto@colocolosantabarbara.cl', descripcion: 'Email de contacto' },
+    { clave: 'direccion', valor: 'Santa Bárbara, Región del Biobío', descripcion: 'Dirección' },
+    { clave: 'facebook', valor: 'https://facebook.com/colocolosantabarbara', descripcion: 'Facebook URL' },
+    { clave: 'instagram', valor: 'https://instagram.com/colocolosantabarbara', descripcion: 'Instagram URL' },
     { clave: 'whatsapp', valor: '+56912345678', descripcion: 'WhatsApp' },
     { clave: 'hero_titulo', valor: 'Formando Campeones del Futuro', descripcion: 'Título del Hero' },
     {

@@ -3,11 +3,59 @@ import PublicLayout from '@/components/public/PublicLayout';
 import { getConfigMap } from '@/lib/content';
 
 const valores = [
-  { icon: 'Disciplina', title: 'Disciplina', desc: 'Orden, constancia y respeto por el proceso en cada sesión.' },
-  { icon: 'Equipo', title: 'Equipo', desc: 'Competimos mejor cuando el grupo se siente unido y fuerte.' },
-  { icon: 'Mentalidad', title: 'Mentalidad', desc: 'Entrenamos confianza, concentración y toma de decisiones.' },
-  { icon: 'Excelencia', title: 'Excelencia', desc: 'Buscamos estándares altos en forma, fondo y actitud.' },
+  { icon: 'shield', title: 'Disciplina', desc: 'Orden, constancia y respeto por el proceso en cada sesión.' },
+  { icon: 'team', title: 'Equipo', desc: 'Competimos mejor cuando el grupo se siente unido y fuerte.' },
+  { icon: 'target', title: 'Mentalidad', desc: 'Entrenamos confianza, concentración y toma de decisiones.' },
+  { icon: 'star', title: 'Excelencia', desc: 'Buscamos estándares altos en forma, fondo y actitud.' },
 ];
+
+function ValueIcon({ name }: { name: string }) {
+  const commonProps = {
+    className: 'h-8 w-8',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    strokeWidth: 1.8,
+    viewBox: '0 0 24 24',
+  };
+
+  if (name === 'team') {
+    return (
+      <svg {...commonProps} aria-hidden="true">
+        <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M3.5 19a4.5 4.5 0 0 1 9 0" />
+        <path d="M11.5 19a4.5 4.5 0 0 1 9 0" />
+      </svg>
+    );
+  }
+
+  if (name === 'target') {
+    return (
+      <svg {...commonProps} aria-hidden="true">
+        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+        <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" />
+        <path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
+      </svg>
+    );
+  }
+
+  if (name === 'star') {
+    return (
+      <svg {...commonProps} aria-hidden="true">
+        <path d="m12 3 2.35 5.05 5.52.68-4.07 3.8 1.07 5.47L12 15.3 7.13 18l1.07-5.47-4.07-3.8 5.52-.68L12 3Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps} aria-hidden="true">
+      <path d="M12 3 5.5 5.5v5.7c0 4.2 2.7 7.9 6.5 9.1 3.8-1.2 6.5-4.9 6.5-9.1V5.5L12 3Z" />
+      <path d="m9.5 12 1.7 1.7 3.6-4" />
+    </svg>
+  );
+}
 
 export default async function NosotrosPage() {
   const config = await getConfigMap();
@@ -88,7 +136,7 @@ export default async function NosotrosPage() {
         </div>
       </section>
 
-      <section className="bg-[#f4f7fd] py-24">
+      <section className="bg-[#f4f7fd] pb-24 pt-28">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="eyebrow">Valores</p>
@@ -100,8 +148,8 @@ export default async function NosotrosPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {valores.map((valor) => (
               <div key={valor.title} className="card p-7 text-center">
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a67] text-xs font-black uppercase tracking-[0.18em] text-white">
-                  {valor.icon}
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a67] text-white shadow-[0_14px_30px_rgba(16,42,103,0.2)]">
+                  <ValueIcon name={valor.icon} />
                 </div>
                 <h3 className="text-2xl font-black tracking-tight text-gray-900">{valor.title}</h3>
                 <p className="mt-3 text-base leading-7 text-gray-600">{valor.desc}</p>

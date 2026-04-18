@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Escuela de Fútbol Elite',
-  description: 'Formando campeones del futuro. Entrenamiento profesional para niños y jóvenes.',
+  title: 'Colo Colo Santa Bárbara',
+  description: 'Escuela de fútbol formativo para niños y jóvenes en Santa Bárbara.',
 };
 
 export default function RootLayout({
