@@ -218,14 +218,14 @@ a {
 
 .hero-moving-ball {
   position: absolute;
-  bottom: 13%;
+  bottom: 12%;
   left: 0;
   z-index: 5;
   width: clamp(2.85rem, 4.1vw, 4.1rem);
   aspect-ratio: 1;
   opacity: 0.96;
   pointer-events: none;
-  animation: hero-ball-run 9s linear infinite;
+  animation: hero-ball-bounce-run 8.4s linear infinite;
 }
 
 .hero-moving-ball svg {
@@ -235,12 +235,14 @@ a {
   border-radius: 999px;
   filter: drop-shadow(0 1rem 1.15rem rgba(0, 0, 0, 0.42));
   shape-rendering: geometricPrecision;
+  transform-origin: center bottom;
+  animation: hero-ball-squash 8.4s linear infinite;
 }
 
 .hero-moving-ball .ball-pattern {
   transform-box: fill-box;
   transform-origin: center;
-  animation: hero-ball-pattern-spin 9s linear infinite;
+  animation: hero-ball-pattern-spin 8.4s linear infinite;
 }
 
 .hero-moving-ball::after {
@@ -253,43 +255,128 @@ a {
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.34);
   filter: blur(0.2rem);
-  animation: hero-ball-shadow 9s linear infinite;
+  animation: hero-ball-bounce-shadow 8.4s linear infinite;
 }
 
 @keyframes hero-ball-pattern-spin {
   to {
-    transform: rotate(720deg);
+    transform: rotate(980deg);
   }
 }
 
-@keyframes hero-ball-run {
+@keyframes hero-ball-squash {
+  0% {
+    transform: scaleX(1.08) scaleY(0.92);
+  }
+  6%,
+  18%,
+  30%,
+  42%,
+  54%,
+  66%,
+  78%,
+  90% {
+    transform: scaleX(0.98) scaleY(1.03);
+  }
+  12%,
+  24%,
+  36%,
+  48%,
+  60%,
+  72%,
+  84%,
+  96% {
+    transform: scaleX(1.08) scaleY(0.92);
+  }
+  100% {
+    transform: scaleX(1.08) scaleY(0.92);
+  }
+}
+
+@keyframes hero-ball-bounce-run {
   0% {
     transform: translate3d(-8vw, 0, 0) rotate(0deg);
   }
-  22% {
-    transform: translate3d(18vw, -1.1rem, 0) rotate(155deg);
+  6% {
+    transform: translate3d(-1vw, -2.4rem, 0) rotate(75deg);
+  }
+  12% {
+    transform: translate3d(6vw, 0, 0) rotate(150deg);
+  }
+  18% {
+    transform: translate3d(14vw, -2.05rem, 0) rotate(235deg);
+  }
+  24% {
+    transform: translate3d(22vw, 0, 0) rotate(320deg);
+  }
+  30% {
+    transform: translate3d(30vw, -1.85rem, 0) rotate(405deg);
+  }
+  36% {
+    transform: translate3d(38vw, 0, 0) rotate(490deg);
+  }
+  42% {
+    transform: translate3d(46vw, -1.65rem, 0) rotate(575deg);
   }
   48% {
-    transform: translate3d(45vw, 0.3rem, 0) rotate(350deg);
+    transform: translate3d(54vw, 0, 0) rotate(660deg);
+  }
+  54% {
+    transform: translate3d(62vw, -1.45rem, 0) rotate(745deg);
+  }
+  60% {
+    transform: translate3d(70vw, 0, 0) rotate(830deg);
+  }
+  66% {
+    transform: translate3d(78vw, -1.2rem, 0) rotate(915deg);
   }
   72% {
-    transform: translate3d(70vw, -0.8rem, 0) rotate(545deg);
+    transform: translate3d(86vw, 0, 0) rotate(1000deg);
+  }
+  78% {
+    transform: translate3d(94vw, -1rem, 0) rotate(1085deg);
+  }
+  84% {
+    transform: translate3d(102vw, 0, 0) rotate(1170deg);
+  }
+  90% {
+    transform: translate3d(110vw, -0.75rem, 0) rotate(1255deg);
+  }
+  96% {
+    transform: translate3d(118vw, 0, 0) rotate(1340deg);
   }
   100% {
-    transform: translate3d(108vw, 0, 0) rotate(760deg);
+    transform: translate3d(124vw, 0, 0) rotate(1390deg);
   }
 }
 
-@keyframes hero-ball-shadow {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scaleX(0.8);
+@keyframes hero-ball-bounce-shadow {
+  0% {
+    opacity: 0.38;
+    transform: scaleX(1.24);
   }
-  45%,
-  75% {
-    opacity: 0.34;
-    transform: scaleX(1.2);
+  6%,
+  18%,
+  30%,
+  42%,
+  54%,
+  66%,
+  78%,
+  90% {
+    opacity: 0.16;
+    transform: scaleX(0.62);
+  }
+  12%,
+  24%,
+  36%,
+  48%,
+  60%,
+  72%,
+  84%,
+  96%,
+  100% {
+    opacity: 0.38;
+    transform: scaleX(1.24);
   }
 }
 
