@@ -20,7 +20,7 @@ export default async function GaleriaPage() {
   return (
     <PublicLayout>
       <section className="relative overflow-hidden bg-black py-24 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(245,197,24,0.14),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,42,103,0.22),transparent_28%),radial-gradient(circle_at_right,rgba(196,23,48,0.14),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent)]" />
         <div className="container relative z-10 mx-auto px-4 text-center">
           <p className="eyebrow">Galería</p>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] md:text-7xl">
